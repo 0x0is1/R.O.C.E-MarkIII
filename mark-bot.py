@@ -80,7 +80,7 @@ async def main_fun():
     global LAST_UPDATED
     response=requests.get(FEEDURL)
     soup=scraper(response.content, 'html.parser')
-    items=soup.find_all('item')
+    items=list(soup.find_all('item'))
     channel_ids = list(info.keys())    
     data = marklib.newsgen(reversed(items), LAST_UPDATED)
     for channel_id in channel_ids:
