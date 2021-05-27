@@ -23,7 +23,7 @@ def invite_embed():
     return embed
 
 def source_embed():
-    source_code = 'https://github.com/0x0is1/R.O.C.E'
+    source_code = 'https://github.com/0x0is1/R.O.C.E-MarkIII'
     embed = discord.Embed(title='R.O.C.E Source code',
                           url=source_code,
                           description='Get R.O.C.E Source Code.')
