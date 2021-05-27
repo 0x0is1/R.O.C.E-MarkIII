@@ -111,6 +111,10 @@ async def source(ctx):
     embed = source_embed()
     await ctx.send(embed=embed)
 
+@bot.command()
+async def invite(ctx):
+    embed = invite_embed()
+    await ctx.send(embed=embed)
 
 @bot.command()
 async def credits(ctx):
