@@ -36,10 +36,10 @@ def register_text_channel(channel_id, status, regkey):
         activation_info[str(channel_id)] = str(status)
     if regkey == 'dereg':
         activation_info.pop(str(channel_id))
-    info = json.load(open('info.json', 'r'))
     
     with open('info.json', 'w') as filename:
         json.dump(activation_info, filename)
+    info = json.load(open('info.json', 'r'))
 
 def help_embed():
     embed = discord.Embed(title="Rational Operative Communication Entity", color=0x03f8fc)
