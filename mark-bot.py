@@ -30,11 +30,13 @@ def source_embed():
     return embed
 
 def register_text_channel(channel_id, status, regkey):
+    global info
     activation_info = json.load(open('info.json', 'r'))
     if regkey == 'reg':
         activation_info[str(channel_id)] = str(status)
     if regkey == 'dereg':
         activation_info.pop(str(channel_id))
+    info = json.load(open('info.json', 'r'))
     
     with open('info.json', 'w') as filename:
         json.dump(activation_info, filename)
@@ -78,6 +80,7 @@ async def on_ready():
 @tasks.loop(seconds=REFRESH_TIME)
 async def main_fun():
     global LAST_UPDATED
+    global info
     response=requests.get(FEEDURL)
     soup=scraper(response.content, 'html.parser')
     items=soup.find_all('item')
