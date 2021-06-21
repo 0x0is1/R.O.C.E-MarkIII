@@ -11,7 +11,7 @@ FEEDURL='https://feeds.feedburner.com/ndtvnews-latest'
 def newsembed(data):
     embed = discord.Embed(title='News of the minute', color=0x03f8fc)
     embed.set_image(url=data[4])
-    embed.add_field(name=data[0], value='{0} [Read More]({1})'.format(data[1], data[3]), inline=False)
+    embed.add_field(name=data[0], value='{1} [Read More]({0})'.format(data[1], data[3]), inline=False)
     embed.set_footer(text=data[2])
     return embed
 
