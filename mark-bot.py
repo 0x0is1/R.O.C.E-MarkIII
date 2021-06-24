@@ -2,6 +2,7 @@ from discord.ext.commands.errors import CommandInvokeError, CommandNotFound
 import requests,os,json,discord, marklib
 from discord.ext import commands, tasks
 from bs4 import BeautifulSoup as scraper
+from webserver import keep_alive
 LAST_UPDATED = 0.0
 REFRESH_TIME = 5
 info={}
@@ -151,6 +152,6 @@ async def on_command_error(ctx, error):
         await ctx.send('`Unknown command` \n Please use right command to operate. `help` for commands details.')
     if isinstance(error, CommandInvokeError):
         return
-
+keep_alive()
 token=os.environ.get('EXPERIMENTAL_BOT_TOKEN')
 bot.run(token)
